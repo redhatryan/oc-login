@@ -1,14 +1,5 @@
 # oc-login
 
-[![CI checks](https://github.com/redhat-actions/oc-login/workflows/CI%20checks/badge.svg)](https://github.com/redhat-actions/oc-login/actions?query=workflow%3A%22CI+checks%22)
-[![oc login workflow](https://github.com/redhat-actions/oc-login/workflows/oc-login%20Example/badge.svg)](https://github.com/redhat-actions/oc-login/actions?query=workflow%3A%22oc-login+Example%22)
-[![Multiplatform Workflow](https://github.com/redhat-actions/oc-login/workflows/Multiplatform%20Workflow/badge.svg)](https://github.com/redhat-actions/oc-login/actions?query=workflow%3A%22Multiplatform+Workflow%22)
-[![Link checker](https://github.com/redhat-actions/oc-login/workflows/Link%20checker/badge.svg)](https://github.com/redhat-actions/oc-login/actions?query=workflow%3A%22Link+checker%22)
-
-[![tag badge](https://img.shields.io/github/v/tag/redhat-actions/oc-login)](https://github.com/redhat-actions/oc-login/tags)
-[![license badge](https://img.shields.io/github/license/redhat-actions/oc-login)](./LICENSE)
-[![size badge](https://img.shields.io/github/size/redhat-actions/oc-login/dist/index.js)](./dist)
-
 `oc-login` is a GitHub Action to log into an OpenShift cluster, and preserve that Kubernetes context for the remainder of the job.
 
 See the [OpenShift Documentation](https://docs.openshift.com/enterprise/3.0/dev_guide/authentication.html) for an explanation of a log in using `oc`, which this action wraps.
@@ -20,7 +11,7 @@ See the [OpenShift Documentation](https://docs.openshift.com/enterprise/3.0/dev_
 1. `oc` must be installed on the GitHub Action runner you specify.
 
     - The [Ubuntu Environments](https://github.com/actions/virtual-environments#available-environments) come with `oc` installed.
-    - If you want a different version of `oc`, or if you are using the Mac or Windows environments, use the [`openshift-tools-installer`](https://github.com/redhat-actions/openshift-tools-installer) action to install `oc` before running this action.
+    - If you want a different version of `oc`, or if you are using the Mac or Windows environments, use the [`openshift-tools-installer`](https://github.com/redhatryan/openshift-tools-installer) action to install `oc` before running this action.
       - See the [multiplatform example](./.github/workflows/multiplatform.yml)
 
 2. Find your OpenShift Server URL.
@@ -29,7 +20,7 @@ See the [OpenShift Documentation](https://docs.openshift.com/enterprise/3.0/dev_
     - At this time, the cluster must be available on the internet, so the Action runner can access it.
 
 3. Decide how you are going to log into the OpenShift server from the action.
-    - The recommended approach is to [create a functional Service Account and use its token](https://github.com/redhat-actions/oc-login/wiki/Using-a-Service-Account-for-GitHub-Actions).
+    - The recommended approach is to [create a functional Service Account and use its token](https://github.com/redhatryan/oc-login/wiki/Using-a-Service-Account-for-GitHub-Actions).
       - The primary advantage of Service Accounts is that by default, their tokens do not expire.
     - You can also use a personal token.
       - If you have already logged in locally, use `oc whoami --show-token`.
